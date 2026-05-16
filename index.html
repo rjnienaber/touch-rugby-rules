@@ -1049,9 +1049,11 @@
                         <!-- Perimeter background -->
                         <rect x="0" y="0" width="430" height="510" fill="#d8dde8" rx="3"/>
 
-                        <!-- Sin bin areas (amber) — in perimeter, outside dead ball lines -->
-                        <rect x="90" y="10"  width="250" height="35" fill="#ffc107"/>
-                        <rect x="90" y="465" width="250" height="35" fill="#ffc107"/>
+                        <!-- Sin bin areas (amber) — two corner blocks per end, in perimeter outside dead ball lines -->
+                        <rect x="90"  y="10"  width="80" height="35" fill="#ffc107"/>
+                        <rect x="260" y="10"  width="80" height="35" fill="#ffc107"/>
+                        <rect x="90"  y="465" width="80" height="35" fill="#ffc107"/>
+                        <rect x="260" y="465" width="80" height="35" fill="#ffc107"/>
 
                         <!-- In-goal areas (green) — between dead ball lines and try lines, 7M each -->
                         <rect x="90" y="45"  width="250" height="35" fill="#81c784"/>
@@ -1093,8 +1095,10 @@
                         <line x1="90" y1="305" x2="340" y2="305" stroke="#1c2f6e" stroke-width="1" stroke-dasharray="5,5" opacity="0.4"/>
 
                         <!-- Zone labels -->
-                        <text x="215" y="32"  text-anchor="middle" font-family="sans-serif" font-size="9"  font-weight="700" fill="#4e342e">SIN BIN AREAS</text>
-                        <text x="215" y="482" text-anchor="middle" font-family="sans-serif" font-size="9"  font-weight="700" fill="#4e342e">SIN BIN AREAS</text>
+                        <text x="130" y="32"  text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#4e342e">SIN BIN</text>
+                        <text x="300" y="32"  text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#4e342e">SIN BIN</text>
+                        <text x="130" y="482" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#4e342e">SIN BIN</text>
+                        <text x="300" y="482" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="#4e342e">SIN BIN</text>
                         <text x="215" y="67"  text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1b5e20">IN-GOAL AREA</text>
                         <text x="215" y="452" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#1b5e20">IN-GOAL AREA</text>
                         <text x="215" y="102" text-anchor="middle" font-family="sans-serif" font-size="9"  font-weight="700" fill="#7f1010">7M ZONE</text>
@@ -1105,8 +1109,8 @@
                         <text x="86" y="48"  text-anchor="end" font-family="sans-serif" font-size="7"   font-weight="700" fill="#1c2f6e">DEAD BALL</text>
                         <text x="86" y="83"  text-anchor="end" font-family="sans-serif" font-size="7.5" font-weight="700" fill="#c41230">TRY LINE</text>
                         <text x="86" y="118" text-anchor="end" font-family="sans-serif" font-size="7"   fill="#c41230" font-style="italic">7m line</text>
-                        <text x="86" y="208" text-anchor="end" font-family="sans-serif" font-size="7"   fill="#555"    font-style="italic">10m line</text>
-                        <text x="86" y="308" text-anchor="end" font-family="sans-serif" font-size="7"   fill="#555"    font-style="italic">10m line</text>
+                        <text x="96" y="202" text-anchor="start" font-family="sans-serif" font-size="7" fill="#555" font-style="italic">10m</text>
+                        <text x="96" y="302" text-anchor="start" font-family="sans-serif" font-size="7" fill="#555" font-style="italic">10m</text>
                         <text x="86" y="398" text-anchor="end" font-family="sans-serif" font-size="7"   fill="#c41230" font-style="italic">7m line</text>
                         <text x="86" y="433" text-anchor="end" font-family="sans-serif" font-size="7.5" font-weight="700" fill="#c41230">TRY LINE</text>
                         <text x="86" y="468" text-anchor="end" font-family="sans-serif" font-size="7"   font-weight="700" fill="#1c2f6e">DEAD BALL</text>
