@@ -245,6 +245,38 @@
     }
 
     /* ----------------------------------------------------------
+       Sync sidebar nav visibility to filtered content state
+    ---------------------------------------------------------- */
+    function syncNavVisibility() {
+        const active = searchInput.value.trim().length >= 2;
+
+        document.querySelectorAll('.sidebar-nav li').forEach(li => {
+            if (li.classList.contains('nav-heading')) return; // handled below
+            const a = li.querySelector('a[href^="#"]');
+            if (!a) return;
+            if (!active) { li.style.display = ''; return; }
+            const target = document.getElementById(a.getAttribute('href').slice(1));
+            if (!target || target.id === 'section-field') { li.style.display = ''; return; }
+            li.style.display = target.style.display === 'none' ? 'none' : '';
+        });
+
+        /* Nav headings: visible if at least one non-section sibling li is visible */
+        document.querySelectorAll('.sidebar-nav .nav-heading').forEach(heading => {
+            if (!active) { heading.style.display = ''; return; }
+            let el = heading.nextElementSibling;
+            let anyVisible = false;
+            while (el && !el.classList.contains('nav-heading')) {
+                const a = el.querySelector('a');
+                if (a && a.classList.contains('nav-section-link')) break;
+                if (el.style.display !== 'none') { anyVisible = true; break; }
+                el = el.nextElementSibling;
+            }
+            heading.style.display = anyVisible ? '' : 'none';
+        });
+    }
+
+
+    /* ----------------------------------------------------------
        Main search entry point
     ---------------------------------------------------------- */
     function applySearch(query) {
@@ -254,6 +286,7 @@
         activeIndex = -1;
 
         if (!query || query.length < 2) {
+            syncNavVisibility();
             renderSearchUI();
             return;
         }
@@ -262,6 +295,7 @@
 
         filterContent(re);
         highlightVisible(query);
+        syncNavVisibility();
 
         if (matches.length > 0) goTo(0);
         renderSearchUI();
@@ -305,6 +339,7 @@
             searchInput.value = '';
             clearMarks();
             restoreAll();
+            syncNavVisibility();
             matches = [];
             searchNav.style.display = 'none';
         }
