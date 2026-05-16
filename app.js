@@ -167,6 +167,16 @@
             if (defCard) defCard.style.display = defHasMatch ? '' : 'none';
         }
 
+        /* Communication / Level 2 — filter individual cards by text match */
+        ['#section-communication', '#section-level2'].forEach(id => {
+            const sec = contentEl.querySelector(id);
+            if (!sec) return;
+            sec.querySelectorAll('.card').forEach(card => {
+                re.lastIndex = 0;
+                card.style.display = re.test(card.textContent) ? '' : 'none';
+            });
+        });
+
         /* Hide entire main-sections that have no visible cards */
         contentEl.querySelectorAll('.main-section').forEach(section => {
             /* Field of Play section has no filterable cards — always keep it */

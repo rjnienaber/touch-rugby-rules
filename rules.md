@@ -658,6 +658,79 @@ Two-word calls used by referees during play.
 
 ---
 
+## Level 2 Referee Badge Competency Assessment
+
+Criteria assessed during a competitive match. Items marked **[REQ]** are mandatory — a "Yes" rating is required for those items to pass the section. A majority "Yes" across all items is required per section. Competency in all sections is required to pass overall.
+
+### 1. Pre-Game Duties
+
+- Arrived on time for the game
+- The scorecard / pen / coin
+- Conferred with their "buddy" referee(s)
+- Checked the field and checked the players
+
+### 2. Presentation
+
+- Have a confident demeanour
+- Have a correct, clean and tidy uniform
+
+### 3. Signals
+
+Referee must correctly demonstrate each signal during a game, or when asked. "Correctly" means: clear and correct with crisp delivery, given with authority, correct stance and posture, and performed mainly on the run. Level 2 signals may be tested off-field; Level 1 signals must be delivered during the game.
+
+- Level 1 signals delivered in-game (please note all signals observed)
+- Play on
+- Incorrect tap — 4 variations: not touched with foot · attacker offside · not on the mark · ball not released
+- Incorrect rollball — 3 variations: outside legs · not square · rolled more than 1m
+- Penalty – rollball performed past the mark
+- Penalty – offside — 2 variations: at 7m · at 10m
+- Penalty – obstruction
+- Penalty – physical play
+- Penalty – disputing decisions
+- Penalty – falsely claimed (phantom) touch
+- Penalty – voluntary rollball
+- Player replacement option (forced substitution)
+- Player dismissed — 2 variations: period of time (sin bin) · remainder of game
+- Support referee discreet signals — 4 variations: agreement · forward pass · touch · ball to ground
+- **[REQ]** Brief verbal explanation given together with signal to aid player understanding
+
+### 4. Control & Positioning
+
+- **[REQ]** Set a consistent 7m and achieve reasonable player control (i.e. nominate and get a response from offside defenders)
+- Indicate 10m at the tap and attempt to control it
+- Keep "eyes on the ball" at all times and move with the ball to be in the next desired position
+- Consistently control the rollball (no interference)
+- Position to see touches and keep out of the way on the scoreline
+- Consistently control heavy touches
+
+### 5. Fitness
+
+- Stay with play if the ball goes wide (i.e. uses the full field width)
+- Get to the Try point as the ball is grounded or use best running angle to allow best view of Try
+- Sprint on changes of possession (i.e. 7m-to-7m)
+
+### 6. Refereeing Systems
+
+- Interchange correctly — 2 situations: in open play · change of possession near sideline
+- Keep up with play while on the sideline and give support to the on-field referee (when required); attempt to use 2×2×2
+- Perform the correct (on-field) Try procedure
+
+### 7. Communication
+
+- **[REQ]** Have an audible whistle and display variation in blast length and tone
+- **[REQ]** Establish audible, clear, effective verbal communication with players
+- Use verbal communications on the run to aid game control
+- Display adequate control at the scoreline
+- Handle conflict situations with confidence
+
+### 8. Rulings
+
+- **[REQ]** Display an adequate knowledge with consistent rulings
+- **[REQ]** Correctly and consistently rule on late and forward passes
+- Ensure the rollball is performed on the mark
+
+---
+
 ## Field of Play — Dimensions
 
 - **Overall length**: 70 metres (Try Line to Try Line), plus two 7-metre In-Goal Areas
