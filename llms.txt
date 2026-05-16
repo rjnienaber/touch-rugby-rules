@@ -1,0 +1,11 @@
+# Touch Rugby Playing Rules
+
+> Complete playing rules for the game of Touch (5th Edition). Covers all 25 rules of play, full definitions and terminology, and field of play dimensions. Suitable for players, coaches, referees, and competition organisers.
+
+## Rules
+
+- [Full Rules, Definitions & Field of Play](https://rjnienaber.github.io/touch-rugby-rules/rules.md): All 25 rules of play with sub-clauses and referee rulings, complete glossary of terms, and field of play dimensions — plain Markdown, optimised for AI ingestion.
+
+## Interactive Site
+
+- [Touch Rugby Rules website](https://rjnienaber.github.io/touch-rugby-rules/): Searchable single-page reference with deep links to individual rule clauses (e.g. /index.html#r13-12-1).
