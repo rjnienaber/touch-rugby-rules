@@ -4,7 +4,7 @@
 
 ## Rules
 
-- [Full Rules, Definitions & Field of Play](https://rjnienaber.github.io/touch-rugby-rules/rules.md): All 25 rules of play with sub-clauses and referee rulings, complete glossary of terms, and field of play dimensions — plain Markdown, optimised for AI ingestion.
+- [Full Rules, Definitions & Field of Play](https://rjnienaber.github.io/touch-rugby-rules/rules.md): All 25 rules of play with sub-clauses and referee rulings, complete glossary of terms, field of play dimensions, and referee two-word communication calls — plain Markdown, optimised for AI ingestion.
 
 ## Interactive Site
 

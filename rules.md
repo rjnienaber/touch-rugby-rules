@@ -573,6 +573,91 @@ Unless the contrary intention appears, the following definitions and terminology
 
 ---
 
+## Referee Communication — Two-Word Instructions
+
+Two-word calls used by referees during play.
+
+### Count
+
+| Call | Meaning |
+|------|---------|
+| First, Second, Third, Fourth | Always use "n'th" for touch count. This will be different from player numbers "one, two, three, etc". |
+| FIFTH | This one should always be very loud. Never "Last Touch" or "Fifth and Final" since the side may get a 'six again' call. Fifth and Offside/Play On should be your loudest calls on the field since they have the largest impact on play. |
+| Fourth coming | When you include touch count as part of the pre-load when near the scoreline. |
+
+### Offsides
+
+| Call | Meaning |
+|------|---------|
+| Seven, No | Means seven is offside. |
+| Seven, Early | Means seven has advanced too early. |
+| Seven | Once you have warned them, just use their number. |
+| Seven, seven, seven… | A sideline referee making you aware that seven is offside and continues to be so. |
+| Six here | When you can see a player might not retreat far enough, or has a habit of standing a little bit offside, and you want them to look and act. |
+| Six make me | When you can see a player will interfere with the next touch or the advantage, usually as part of a pre-load. |
+| RED, ON ME | Best call if a whole side is unsure of their position, usually when an extra 10m has been added to a penalty, or they are all not back 10m at penalty. |
+| Red, To Me | Better used as a pre-load to indicate they will need to look for you in future. "On" is an immediate call to action, where "To" indicates there is either a delay or it is a future requirement. |
+| Come Around, or Around Me | When you want a substitute to come onside from behind you as the sideline referee, rather than coming through the attacking line. |
+
+### Shooters
+
+| Call | Meaning |
+|------|---------|
+| SHOOTER (no) | If you cannot see the number, or don't have time, just "shooter" is acceptable, since there is no other reason to warn them. |
+| Hold…Go | Useful for shooter control to hold them until the half touches the ball, and release them when you are ready. |
+| …Go | Also used when you decide that there is no half in place, and the defence may move up already. |
+
+### Onsides
+
+| Call | Meaning |
+|------|---------|
+| Seven yes | Easiest way to call someone onside. |
+| YES | If you used your arm to identify a player retreating but still offside, and the attack can see it or is running that gap, then drop the arm and call 'YES'. |
+| He's (She's) good | When you want the attackers to know the shooter is okay. |
+| All good | When a whole group is onside (either the entire side, or that whole middle/link/wing). Useful when you have been overrun, or on a fast 5-5. "Good" is a word players recognise easily, and indicates that you are happy. "There is good" can be used to reassure a player they are on the Mark. |
+
+### Scoreline
+
+| Call | Meaning |
+|------|---------|
+| Line | This should be used instead of touch count to remind defenders where to retreat to. Better if you can put it in pre-load. |
+| Hold / hold for half | When you want all players to hold for the half to touch the ball. |
+| Imminent | When you think a touch is imminent (about to happen), and allow the defence to retreat. |
+| Pass is good, or Grounding is good | To indicate to players you think the pass was okay (usually when they are claiming it is forward). Never give a "Play On" signal for something that happened in the past. |
+| Hold please | If you need a moment to consult your sideline referee for confirmation. |
+| Six, Feet | To bring a player all the way to the line. Useful when a restart is taking a while, or when you want a player to pay more attention to onsides. |
+
+### Freeze
+
+| Call | Meaning |
+|------|---------|
+| Move Up, or Moving Up | To get people moving forward. |
+| Stay Up | When you see a player thinking about stopping or backing away. "Up" is used instead of "Out" since "Stay Out" is used in a very different way. |
+| Far enough | When you think the defence has advanced far enough (15m). |
+| Inside, or Okay | To signify that the ball is within 5m of the line, and therefore Freeze no longer applies. |
+
+### Delay
+
+| Call | Meaning |
+|------|---------|
+| Roll. Roll please. Play on. / Tap. Tap please. Play on. | Escalation for a player when they are delaying. At the play on, if the player rolls then continue. Otherwise, think about a penalty. |
+
+### Other
+
+| Call | Meaning |
+|------|---------|
+| Quiet Please, or Less Talk | When you want less backchat. |
+| Gone, or Play On | To show a pass is good, or was gone before the touch was made. An alternate call is "No Problem", but this is only useful when it looks like a fumble or other error in a rollball or tap. |
+| Advantage | When you see an option for a Penalty, but want the attack to continue if possible. |
+| Advantage Taken, or just 'Taken' | When you believe Advantage has been successfully taken, to let the attack know it is now back to normal play. |
+| No Advantage | When you believe that Advantage was not successfully taken, and want to come back to the Penalty. By calling Advantage, and No Advantage, you continually remind the Attack that advantage is possible, and that they should at least try to get some! |
+| Play On | When you want players to keep playing while you think about Advantage, or otherwise want them to continue. |
+| STAY OUT, or GET OUT | When a player is interfering, particularly if they might be Sent Off if they continue to interfere. This is useful when a player is repeatedly infringing, or doing something very silly, as it gets their attention quickly and usually makes them avoid the play. |
+| Green Ready | When you are going to restart quickly, and want to draw the players' (usually defenders) attention to the restart. |
+| Square Up / keep square | When the attack is moving sideways and might be in danger of rolling without squaring up. |
+
+---
+
 ## Field of Play — Dimensions
 
 - **Overall length**: 70 metres (Try Line to Try Line), plus two 7-metre In-Goal Areas
