@@ -658,6 +658,29 @@ Two-word calls used by referees during play.
 
 ---
 
+## Referee Positioning
+
+Legend: **X** = attacking player / player in possession · **Y** = defending player · **R** = referee
+
+### Tap-off
+
+- X (ball carrier) takes the tap on the halfway line, centre field.
+- R positions between X and the defensive line, slightly ahead of X, to observe both the tap and the retreating defence.
+- Y defenders line up on or behind the 10m line across the width of the field.
+
+### Rollball
+
+- X (ball carrier) performs the rollball; a second X (the half) is close behind, ready to pick up.
+- The two referees (R) position themselves within the defensive line, interspersed among Y defenders (pattern: Y Y R Y R Y), to monitor for offsides and the ruck/rollball area.
+
+### Try Line
+
+- As play approaches the try line, X (ball carrier) advances with other players spread across the field.
+- Y defenders hold the try line.
+- R moves into the in-goal area, positioned on or just past the try line, facing upfield to watch for the grounding of the ball.
+
+---
+
 ## Level 2 Referee Badge Competency Assessment
 
 Criteria assessed during a competitive match. Items marked **[REQ]** are mandatory — a "Yes" rating is required for those items to pass the section. A majority "Yes" across all items is required per section. Competency in all sections is required to pass overall.

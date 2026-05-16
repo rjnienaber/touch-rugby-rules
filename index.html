@@ -64,6 +64,7 @@
                 <li><a href="#section-field" class="nav-section-link" style="margin-top:0.3rem">Field of Play</a></li>
                 <li><a href="#section-communication" class="nav-section-link" style="margin-top:0.3rem">Referee Communication</a></li>
                 <li><a href="#section-level2" class="nav-section-link" style="margin-top:0.3rem">Level 2 Assessment</a></li>
+                <li><a href="#section-positioning" class="nav-section-link" style="margin-top:0.3rem">Positioning</a></li>
             </ul>
         </nav>
     </aside>
@@ -1361,6 +1362,153 @@
             </div>
 
         </section><!-- /section-level2 -->
+
+        <!-- ================================================
+             SECTION 6: POSITIONING
+        ================================================ -->
+        <section class="main-section" id="section-positioning">
+            <div class="section-header">
+                <h1>Positioning</h1>
+                <span class="section-edition">Referee Positioning Diagrams</span>
+            </div>
+            <div class="section-accent"></div>
+
+            <!-- Legend -->
+            <div class="card">
+                <p style="font-size:0.88rem;color:var(--muted);margin-bottom:0.75rem;">Top-down diagrams showing recommended referee positioning for key game situations.</p>
+                <div class="pos-legend">
+                    <div class="pos-legend-item"><div class="pos-legend-dot" style="background:#1c2f6e">X</div> Attacking player / player in possession</div>
+                    <div class="pos-legend-item"><div class="pos-legend-dot" style="background:#2e7d32">Y</div> Defending player</div>
+                    <div class="pos-legend-item"><div class="pos-legend-dot" style="background:#c41230">R</div> Referee</div>
+                </div>
+            </div>
+
+            <!-- Tap-off -->
+            <div class="card" id="pos-tapoff">
+                <div class="rule-section-title"><span class="rule-num-badge">1</span> Tap-off</div>
+                <div class="pos-diagram">
+                    <svg viewBox="0 0 440 268" xmlns="http://www.w3.org/2000/svg" aria-label="Tap-off positioning diagram">
+                        <defs>
+                            <marker id="tap-arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                                <polygon points="0 0,7 2.5,0 5" fill="#aabbd0"/>
+                            </marker>
+                        </defs>
+                        <!-- Direction of play arrow -->
+                        <line x1="14" y1="80" x2="14" y2="252" stroke="#aabbd0" stroke-width="1.5" marker-end="url(#tap-arr)"/>
+                        <text x="14" y="68" text-anchor="middle" font-size="9" fill="#aabbd0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">play</text>
+
+                        <!-- Halfway line -->
+                        <line x1="32" y1="106" x2="418" y2="106" stroke="#334466" stroke-width="2"/>
+                        <text x="422" y="110" font-size="11" fill="#556688" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Halfway</text>
+
+                        <!-- 10m defensive line (dashed) -->
+                        <line x1="32" y1="197" x2="418" y2="197" stroke="#334466" stroke-width="1" stroke-dasharray="5,4"/>
+                        <text x="422" y="201" font-size="11" fill="#556688" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">10m</text>
+
+                        <!-- X – ball carrier on the halfway line -->
+                        <g transform="translate(220,106)">
+                            <circle r="14" fill="#1c2f6e"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text>
+                        </g>
+
+                        <!-- R – referee, between ball and defensive line -->
+                        <g transform="translate(228,163)">
+                            <circle r="14" fill="#c41230"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">R</text>
+                        </g>
+
+                        <!-- Y defenders (×5) spread across the defensive line -->
+                        <g transform="translate(60,244)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(138,244)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(220,244)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(302,244)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(378,244)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Rollball -->
+            <div class="card" id="pos-rollball">
+                <div class="rule-section-title"><span class="rule-num-badge">2</span> Rollball</div>
+                <div class="pos-diagram">
+                    <svg viewBox="0 0 440 238" xmlns="http://www.w3.org/2000/svg" aria-label="Rollball positioning diagram">
+                        <defs>
+                            <marker id="rb-arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                                <polygon points="0 0,7 2.5,0 5" fill="#aabbd0"/>
+                            </marker>
+                        </defs>
+                        <!-- Direction of play arrow -->
+                        <line x1="14" y1="38" x2="14" y2="218" stroke="#aabbd0" stroke-width="1.5" marker-end="url(#rb-arr)"/>
+                        <text x="14" y="28" text-anchor="middle" font-size="9" fill="#aabbd0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">play</text>
+
+                        <!-- X – player performing the rollball -->
+                        <g transform="translate(195,62)">
+                            <circle r="14" fill="#1c2f6e"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text>
+                        </g>
+                        <!-- X – the half -->
+                        <g transform="translate(230,97)">
+                            <circle r="14" fill="#1c2f6e"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text>
+                        </g>
+
+                        <!-- Defensive line: Y Y R Y R Y -->
+                        <g transform="translate(50,186)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(118,186)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(186,186)"><circle r="14" fill="#c41230"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">R</text></g>
+                        <g transform="translate(254,186)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(322,186)"><circle r="14" fill="#c41230"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">R</text></g>
+                        <g transform="translate(390,186)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Try line -->
+            <div class="card" id="pos-tryline">
+                <div class="rule-section-title"><span class="rule-num-badge">3</span> Try Line</div>
+                <div class="pos-diagram">
+                    <svg viewBox="0 0 440 285" xmlns="http://www.w3.org/2000/svg" aria-label="Try line positioning diagram">
+                        <defs>
+                            <marker id="tl-arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                                <polygon points="0 0,7 2.5,0 5" fill="#aabbd0"/>
+                            </marker>
+                        </defs>
+                        <!-- Direction of play arrow -->
+                        <line x1="14" y1="38" x2="14" y2="270" stroke="#aabbd0" stroke-width="1.5" marker-end="url(#tl-arr)"/>
+                        <text x="14" y="28" text-anchor="middle" font-size="9" fill="#aabbd0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">play</text>
+
+                        <!-- Background players spread upfield (mixed X and Y) -->
+                        <g transform="translate(80,66)"><circle r="11" fill="#1c2f6e"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text></g>
+                        <g transform="translate(148,66)"><circle r="11" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(220,60)"><circle r="11" fill="#1c2f6e"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text></g>
+                        <g transform="translate(295,66)"><circle r="11" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(362,66)"><circle r="11" fill="#1c2f6e"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text></g>
+
+                        <!-- X – ball carrier approaching the try line -->
+                        <g transform="translate(220,118)">
+                            <circle r="14" fill="#1c2f6e"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">X</text>
+                        </g>
+
+                        <!-- Defenders at the try line -->
+                        <g transform="translate(100,163)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(200,163)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+                        <g transform="translate(320,163)"><circle r="14" fill="#2e7d32"/><text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Y</text></g>
+
+                        <!-- Try line -->
+                        <line x1="32" y1="183" x2="418" y2="183" stroke="#334466" stroke-width="2"/>
+                        <text x="422" y="187" font-size="11" fill="#556688" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Try line</text>
+
+                        <!-- R – referee in the in-goal area watching for the grounding -->
+                        <g transform="translate(232,213)">
+                            <circle r="14" fill="#c41230"/>
+                            <text text-anchor="middle" dominant-baseline="central" fill="white" font-weight="700" font-size="13" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">R</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+        </section><!-- /section-positioning -->
 
     </main><!-- /content -->
 

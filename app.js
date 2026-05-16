@@ -167,8 +167,8 @@
             if (defCard) defCard.style.display = defHasMatch ? '' : 'none';
         }
 
-        /* Communication / Level 2 — filter individual cards by text match */
-        ['#section-communication', '#section-level2'].forEach(id => {
+        /* Communication / Level 2 / Positioning — filter individual cards by text match */
+        ['#section-communication', '#section-level2', '#section-positioning'].forEach(id => {
             const sec = contentEl.querySelector(id);
             if (!sec) return;
             sec.querySelectorAll('.card').forEach(card => {
