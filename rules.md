@@ -658,6 +658,36 @@ Two-word calls used by referees during play.
 
 ---
 
+## Tap or Rollball? — Referee Cribsheet
+
+Quick reference for whether an infringement results in a Penalty Tap or a Rollball (Change of Possession).
+
+| Action | Outcome | Rule | Comment |
+|--------|---------|------|---------|
+| 7 on | Tap | 5.1 | At the most advantageous place for the non-offending team |
+| Off the mark | Tap | 13.2 | |
+| Forward pass | Tap | 11.1 | Where the pass started |
+| Touch and pass / late pass | Tap | 10.6 | |
+| Voluntary rollball | Tap | 13.3 | |
+| Hard touch | Tap | 10.3 | |
+| Back chat / poor sportsmanship | Tap | 20.1 | |
+| Phantom touch | Tap | 10.2 | + Sin Bin |
+| Obstruction | Tap | 16 | |
+| Interfering with the rollball (in the ruck, deliberately knocking the ball from a player…) | Tap | 13.11 | Tap 10m in front of the infringement |
+| Delaying the game | Tap | 9.3 | Tap 10m in front of the infringement if the defence delays |
+| Offside | Tap | 15 | |
+| Not moving forward once one defender has entered the 7m zone (and the ball is outside the 7m) | Tap | 10.13 | |
+| Dropping early | Tap | 10.14 | |
+| Failed intercept | Rollball | 12 | If the ball is retrieved by the attack, play continues and the touch count restarts at 0 — don't call rollball until they are touched! |
+| 6th touch | Rollball | 13.5.2 | |
+| Inadequate rollball (loss of control, hips not square…) | Rollball | 13.1 | |
+| Off the field | Rollball | 13.6.1 | Rollball 7m in-field |
+| Half caught | Rollball | 10.7 | |
+| Ball to ground | Rollball | 9.4 | |
+| Interchange during the intercept | Sin Bin | 17.7 | Sin Bin + potential penalty try |
+
+---
+
 ## Referee Positioning
 
 Legend: **X** = attacking player / player in possession · **Y** = defending player · **R** = referee

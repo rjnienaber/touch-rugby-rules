@@ -6,32 +6,15 @@
     'use strict';
 
     /* ----------------------------------------------------------
-       Mobile nav toggle
+       Sticky top bar height → --topbar-h (used for scroll offsets)
     ---------------------------------------------------------- */
-    const navToggle = document.getElementById('navToggle');
-    const sidebar   = document.getElementById('sidebar');
-    const overlay   = document.getElementById('overlay');
+    const topbar = document.querySelector('.topbar');
 
-    function openNav() {
-        sidebar.classList.add('open');
-        overlay.classList.add('visible');
-        document.body.style.overflow = 'hidden';
+    function syncTopbarHeight() {
+        document.documentElement.style.setProperty('--topbar-h', topbar.offsetHeight + 'px');
     }
-
-    function closeNav() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('visible');
-        document.body.style.overflow = '';
-    }
-
-    navToggle.addEventListener('click', () =>
-        sidebar.classList.contains('open') ? closeNav() : openNav()
-    );
-    overlay.addEventListener('click', closeNav);
-
-    document.querySelectorAll('.sidebar-nav a').forEach(a =>
-        a.addEventListener('click', () => { if (window.innerWidth <= 860) closeNav(); })
-    );
+    syncTopbarHeight();
+    if ('ResizeObserver' in window) new ResizeObserver(syncTopbarHeight).observe(topbar);
 
 
     /* ----------------------------------------------------------
@@ -50,24 +33,185 @@
 
 
     /* ----------------------------------------------------------
-       Scroll spy — highlight active nav link
+       Anchor ids the markup doesn't have: referee call groups and the
+       first definition of each letter (for the sidebar), plus every
+       definition, call and cribsheet row (so a search result can be
+       opened exactly where it is)
     ---------------------------------------------------------- */
-    const navLinks = Array.from(document.querySelectorAll('.sidebar-nav a[href^="#"]'));
+    function slug(str) {
+        return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
 
-    const spyObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const id = '#' + entry.target.id;
-            navLinks.forEach(link =>
-                link.classList.toggle('active', link.getAttribute('href') === id)
-            );
-        });
-    }, { rootMargin: '-15% 0px -75% 0px' });
+    function giveId(el, base) {
+        if (el.id) return;
+        let id = base, n = 2;
+        while (document.getElementById(id)) id = base + '-' + n++;
+        el.id = id;
+    }
 
-    document.querySelectorAll('[id]').forEach(el => {
-        if (navLinks.some(a => a.getAttribute('href') === '#' + el.id)) {
-            spyObserver.observe(el);
+    document.querySelectorAll('#section-communication .comm-group-title').forEach(title => {
+        title.id = 'comm-' + slug(title.textContent);
+    });
+
+    const seenLetters = new Set();
+    document.querySelectorAll('#section-definitions .def-item').forEach(item => {
+        const letter = item.querySelector('.def-term').textContent.trim().charAt(0).toUpperCase();
+        if (seenLetters.has(letter)) return;
+        seenLetters.add(letter);
+        item.id = 'def-' + letter.toLowerCase();
+    });
+
+    document.querySelectorAll('#section-definitions .def-item').forEach(item =>
+        giveId(item, 'term-' + slug(item.querySelector('.def-term').textContent)));
+
+    document.querySelectorAll('#section-communication .comm-item').forEach(item =>
+        giveId(item, 'call-' + slug(item.querySelector('.comm-call').textContent)));
+
+    document.querySelectorAll('#section-penalties .pen-item').forEach(item =>
+        giveId(item, 'pen-' + slug(item.querySelector('.pen-action').firstChild.textContent)));
+
+
+    /* ----------------------------------------------------------
+       Section views — one section at a time, chosen by the URL hash
+    ---------------------------------------------------------- */
+    const phone       = window.matchMedia('(max-width: 860px)');
+    const sections    = Array.from(document.querySelectorAll('.main-section'));
+    const tabs        = Array.from(document.querySelectorAll('.tab'));
+    const sidebar     = document.getElementById('sidebar');
+    const subnav      = document.getElementById('subnav');
+    const subnavTitle = document.getElementById('subnavTitle');
+    const jumpSelect  = document.getElementById('jumpSelect');
+    const DEFAULT_SECTION = 'section-rules';
+
+    let currentSection = null;
+    let spyObserver    = null;
+
+    const isSearching = () => document.body.classList.contains('searching');
+
+    /* The things listed in the sidebar for a section */
+    function subItems(section) {
+        if (section.id === 'section-definitions') {
+            return Array.from(section.querySelectorAll('.def-item[id^="def-"]'))
+                .map(el => ({ id: el.id, label: el.id.slice(4).toUpperCase() }));
         }
+        if (section.id === 'section-communication') {
+            return Array.from(section.querySelectorAll('.comm-group-title'))
+                .map(el => ({ id: el.id, label: el.textContent.trim() }));
+        }
+        return Array.from(section.querySelectorAll(':scope > .card[id]'))
+            .map(card => {
+                const title = card.querySelector('.rule-section-title');
+                if (!title) return null;
+                const badge = title.querySelector('.rule-num-badge');
+                const num   = badge ? badge.textContent.trim() : '';
+                const text  = title.textContent.replace(/\s+/g, ' ').trim().slice(num.length).trim();
+                return { id: card.id, label: num ? `${num}. ${text}` : text };
+            })
+            .filter(Boolean);
+    }
+
+    function buildSubnav(section) {
+        const items = subItems(section);
+        document.body.classList.toggle('no-subnav', items.length === 0);
+
+        subnavTitle.textContent = section.querySelector('h1').textContent;
+        subnav.className = section.id === 'section-definitions' ? 'subnav-letters' : '';
+        subnav.innerHTML = '';
+        jumpSelect.innerHTML = '';
+        jumpSelect.add(new Option('Jump to…', ''));
+
+        items.forEach(item => {
+            const li = document.createElement('li');
+            const a  = document.createElement('a');
+            a.href = '#' + item.id;
+            a.textContent = item.label;
+            li.appendChild(a);
+            subnav.appendChild(li);
+            jumpSelect.add(new Option(item.label, item.id));
+        });
+
+        watchScroll(items);
+    }
+
+    /* Scroll spy — highlight the sidebar link for what's on screen */
+    function keepInView(link) {
+        const l = link.getBoundingClientRect();
+        const s = sidebar.getBoundingClientRect();
+        if (l.top < s.top + 40) sidebar.scrollTop -= s.top + 40 - l.top;
+        else if (l.bottom > s.bottom - 40) sidebar.scrollTop += l.bottom - (s.bottom - 40);
+    }
+
+    function watchScroll(items) {
+        if (spyObserver) spyObserver.disconnect();
+        const links = Array.from(subnav.querySelectorAll('a'));
+
+        spyObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const href = '#' + entry.target.id;
+                links.forEach(link => {
+                    const on = link.getAttribute('href') === href;
+                    link.classList.toggle('active', on);
+                    if (on && sidebar.offsetParent) keepInView(link);
+                });
+                jumpSelect.value = entry.target.id;
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        items.forEach(item => spyObserver.observe(document.getElementById(item.id)));
+    }
+
+    function setSection(section) {
+        if (section === currentSection) return false;
+        currentSection = section;
+        sections.forEach(s => s.classList.toggle('is-current', s === section));
+        tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + section.id));
+        buildSubnav(section);
+        return true;
+    }
+
+    /* Show whatever the hash points at: a section, or anything inside one
+       (e.g. #rule-13 or #r13-12-1). No hash = home tiles on a phone,
+       the Rules section on desktop. */
+    function route(scroll = true, instant = false) {
+        const id      = decodeURIComponent(location.hash.slice(1));
+        const target  = id ? document.getElementById(id) : null;
+        const section = target ? target.closest('.main-section') : null;
+
+        if (!section) {
+            document.body.classList.toggle('view-home', phone.matches);
+            setSection(document.getElementById(DEFAULT_SECTION));
+            if (scroll) window.scrollTo({ top: 0, behavior: 'instant' });
+            return;
+        }
+
+        /* Following a link to something the current search has hidden */
+        if (isSearching() && !target.offsetParent) {
+            searchInput.value = '';
+            clearSearch(false);
+        }
+
+        document.body.classList.remove('view-home');
+        const switched = setSection(section);
+        if (!scroll) return;
+
+        if (target === section && !isSearching()) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        } else {
+            target.scrollIntoView({ behavior: switched || instant ? 'instant' : 'smooth', block: 'start' });
+        }
+    }
+
+    function navigateTo(id) {
+        if (location.hash === '#' + id) route();
+        else location.hash = id;
+    }
+
+    window.addEventListener('hashchange', () => route());
+    phone.addEventListener('change', () => route(false));
+
+    jumpSelect.addEventListener('change', () => {
+        if (jumpSelect.value) navigateTo(jumpSelect.value);
     });
 
 
@@ -99,7 +243,7 @@
 
     /* Restore everything hidden by a previous filter pass */
     function restoreAll() {
-        contentEl.querySelectorAll('.main-section, .card, .rule, .ruling, .def-item').forEach(el => {
+        contentEl.querySelectorAll('.main-section, .card, .rule, .ruling, .def-item, .pen-item').forEach(el => {
             el.style.display = '';
         });
     }
@@ -167,8 +311,21 @@
             if (defCard) defCard.style.display = defHasMatch ? '' : 'none';
         }
 
-        /* Communication / Level 2 / Positioning — filter individual cards by text match */
-        ['#section-communication', '#section-level2', '#section-positioning'].forEach(id => {
+        /* Tap or Rollball cribsheet — filter individual rows */
+        const penSection = contentEl.querySelector('#section-penalties');
+        if (penSection) {
+            let penHasMatch = false;
+            penSection.querySelectorAll('.pen-item').forEach(item => {
+                re.lastIndex = 0;
+                const hasMatch = re.test(item.textContent);
+                item.style.display = hasMatch ? '' : 'none';
+                if (hasMatch) penHasMatch = true;
+            });
+            penSection.querySelector('.card').style.display = penHasMatch ? '' : 'none';
+        }
+
+        /* Field / Communication / Level 2 / Positioning — filter individual cards by text match */
+        ['#section-field', '#section-communication', '#section-level2', '#section-positioning'].forEach(id => {
             const sec = contentEl.querySelector(id);
             if (!sec) return;
             sec.querySelectorAll('.card').forEach(card => {
@@ -179,8 +336,6 @@
 
         /* Hide entire main-sections that have no visible cards */
         contentEl.querySelectorAll('.main-section').forEach(section => {
-            /* Field of Play section has no filterable cards — always keep it */
-            if (section.id === 'section-field') return;
             const hasVisible = Array.from(section.querySelectorAll('.card'))
                 .some(c => c.style.display !== 'none');
             section.style.display = hasVisible ? '' : 'none';
@@ -199,7 +354,9 @@
             {
                 acceptNode(node) {
                     const tag = node.parentElement && node.parentElement.tagName;
-                    if (['SCRIPT', 'STYLE', 'MARK', 'INPUT'].includes(tag))
+                    if (['SCRIPT', 'STYLE', 'MARK', 'INPUT', 'SELECT', 'OPTION'].includes(tag))
+                        return NodeFilter.FILTER_REJECT;
+                    if (node.parentElement.closest('.section-bar, .search-hint'))
                         return NodeFilter.FILTER_REJECT;
                     if (!node.nodeValue.trim())
                         return NodeFilter.FILTER_SKIP;
@@ -245,60 +402,51 @@
     }
 
     /* ----------------------------------------------------------
-       Sync sidebar nav visibility to filtered content state
-    ---------------------------------------------------------- */
-    function syncNavVisibility() {
-        const active = searchInput.value.trim().length >= 2;
-
-        document.querySelectorAll('.sidebar-nav li').forEach(li => {
-            if (li.classList.contains('nav-heading')) return; // handled below
-            const a = li.querySelector('a[href^="#"]');
-            if (!a) return;
-            if (!active) { li.style.display = ''; return; }
-            const target = document.getElementById(a.getAttribute('href').slice(1));
-            if (!target || target.id === 'section-field') { li.style.display = ''; return; }
-            li.style.display = target.style.display === 'none' ? 'none' : '';
-        });
-
-        /* Nav headings: visible if at least one non-section sibling li is visible */
-        document.querySelectorAll('.sidebar-nav .nav-heading').forEach(heading => {
-            if (!active) { heading.style.display = ''; return; }
-            let el = heading.nextElementSibling;
-            let anyVisible = false;
-            while (el && !el.classList.contains('nav-heading')) {
-                const a = el.querySelector('a');
-                if (a && a.classList.contains('nav-section-link')) break;
-                if (el.style.display !== 'none') { anyVisible = true; break; }
-                el = el.nextElementSibling;
-            }
-            heading.style.display = anyVisible ? '' : 'none';
-        });
-    }
-
-
-    /* ----------------------------------------------------------
-       Main search entry point
+       Main search entry point — while a query is active every
+       section with a match is shown at once
     ---------------------------------------------------------- */
     function applySearch(query) {
+        if (!query || query.length < 2) { clearSearch(true); return; }
+
         clearMarks();
         restoreAll();
         matches     = [];
         activeIndex = -1;
-
-        if (!query || query.length < 2) {
-            syncNavVisibility();
-            renderSearchUI();
-            return;
-        }
+        document.body.classList.add('searching');
 
         const re = new RegExp(escRe(query), 'gi');
 
         filterContent(re);
         highlightVisible(query);
-        syncNavVisibility();
+
+        tabs.forEach(tab => {
+            const section = document.querySelector(tab.getAttribute('href'));
+            tab.classList.toggle('tab-empty', section.style.display === 'none');
+        });
 
         if (matches.length > 0) goTo(0);
+        else window.scrollTo({ top: 0, behavior: 'instant' });
         renderSearchUI();
+    }
+
+    /* Leave search mode. With land = true, go to where the selected
+       match was so the reader keeps their place. */
+    function clearSearch(land) {
+        if (!isSearching()) { renderSearchUI(); return; }
+
+        const active  = matches[activeIndex];
+        const landing = land && active ? active.parentElement.closest('[id]') : null;
+
+        clearMarks();
+        restoreAll();
+        matches     = [];
+        activeIndex = -1;
+        document.body.classList.remove('searching');
+        tabs.forEach(tab => tab.classList.remove('tab-empty'));
+        renderSearchUI();
+
+        if (landing) navigateTo(landing.id);
+        else if (land) route();
     }
 
     function goTo(index) {
@@ -336,16 +484,64 @@
             goTo(e.shiftKey ? activeIndex - 1 : activeIndex + 1);
         }
         if (e.key === 'Escape') {
+            clearTimeout(debounceTimer);
             searchInput.value = '';
-            clearMarks();
-            restoreAll();
-            syncNavVisibility();
-            matches = [];
-            searchNav.style.display = 'none';
+            clearSearch(true);
         }
+    });
+
+    /* Clicking a search result leaves search and opens that item in its
+       section. A link inside a result (e.g. a rule number) goes to the
+       link's target instead. */
+    const RESULT = '.rule, .def-item, .pen-item, .comm-item, .assess-item, .card';
+
+    function flash(el) {
+        el.classList.remove('flash');
+        void el.offsetWidth;            // restart the animation
+        el.classList.add('flash');
+        el.addEventListener('animationend', () => el.classList.remove('flash'), { once: true });
+    }
+
+    contentEl.addEventListener('click', e => {
+        if (!isSearching()) return;
+        if (e.target.closest('button, input, select, textarea')) return;
+        if (String(window.getSelection())) return;   // selecting text, not clicking
+
+        const link = e.target.closest('a[href^="#"]');
+        const result = e.target.closest(RESULT);
+        const dest = link ? document.getElementById(link.getAttribute('href').slice(1))
+                          : result && result.closest('[id]');
+        if (!dest) return;
+
+        e.preventDefault();
+        clearTimeout(debounceTimer);
+        searchInput.value = '';
+        clearSearch(false);
+        navigateTo(dest.id);
+        flash(dest);
     });
 
     nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
     prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
+
+
+    /* ----------------------------------------------------------
+       Tap or Rollball cribsheet — outcome filter buttons
+    ---------------------------------------------------------- */
+    const penFilterBtns = document.querySelectorAll('.pen-filter-btn');
+
+    penFilterBtns.forEach(btn => btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        penFilterBtns.forEach(b => b.classList.toggle('active', b === btn));
+        document.querySelectorAll('#section-penalties .pen-item').forEach(item => {
+            item.classList.toggle('pen-hidden', filter !== 'all' && !item.classList.contains('pen-' + filter));
+        });
+    }));
+
+
+    route();
+    /* The browser's own jump to the URL fragment can land after the first
+       route() — settle the position again once everything has loaded */
+    window.addEventListener('load', () => route(true, true));
 
 }());

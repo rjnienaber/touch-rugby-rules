@@ -8,69 +8,96 @@
 </head>
 <body>
 
-<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-    <span></span><span></span><span></span>
-</button>
-<div class="overlay" id="overlay"></div>
-
-<div class="layout">
-
-    <!-- ===== SIDEBAR ===== -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-brand">
-            <div class="brand-title">Touch Rugby Rules</div>
-            <div class="brand-sub">Playing Rules – 5th Edition</div>
-        </div>
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+    <div class="topbar-inner">
+        <a href="#" class="brand" aria-label="Touch Rugby Rules — home">
+            <span class="brand-mark" aria-hidden="true">T</span>
+            <span class="brand-text">
+                <span class="brand-title">Touch Rugby Rules</span>
+                <span class="brand-sub">Playing Rules – 5th Edition</span>
+            </span>
+        </a>
 
         <div class="search-box">
-            <input type="search" id="searchInput" placeholder="Search rules…" autocomplete="off">
+            <input type="search" id="searchInput" placeholder="Search rules, calls, definitions…" autocomplete="off" aria-label="Search">
             <div class="search-nav" id="searchNav">
                 <span id="searchCount"></span>
                 <button id="prevMatch" aria-label="Previous match">↑</button>
                 <button id="nextMatch" aria-label="Next match">↓</button>
             </div>
         </div>
+    </div>
 
-        <nav class="sidebar-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="#section-rules" class="nav-section-link">Rules</a></li>
-                <li class="nav-heading">Rules of Play</li>
-                <li><a href="#rule-1">1. Field of Play</a></li>
-                <li><a href="#rule-2">2. Player Registration</a></li>
-                <li><a href="#rule-3">3. The Ball</a></li>
-                <li><a href="#rule-4">4. Playing Uniform</a></li>
-                <li><a href="#rule-5">5. Team Composition</a></li>
-                <li><a href="#rule-6">6. Team Coach &amp; Officials</a></li>
-                <li><a href="#rule-7">7. Commencement of Play</a></li>
-                <li><a href="#rule-8">8. Match Duration</a></li>
-                <li><a href="#rule-9">9. Possession</a></li>
-                <li><a href="#rule-10">10. The Touch</a></li>
-                <li><a href="#rule-11">11. Passing</a></li>
-                <li><a href="#rule-12">12. Ball Touched in Flight</a></li>
-                <li><a href="#rule-13">13. The Rollball</a></li>
-                <li><a href="#rule-14">14. Scoring</a></li>
-                <li><a href="#rule-15">15. Offside</a></li>
-                <li><a href="#rule-16">16. Obstruction</a></li>
-                <li><a href="#rule-17">17. Interchange</a></li>
-                <li><a href="#rule-18">18. Penalty</a></li>
-                <li><a href="#rule-19">19. Advantage</a></li>
-                <li><a href="#rule-20">20. Misconduct</a></li>
-                <li><a href="#rule-21">21. Forced Interchange</a></li>
-                <li><a href="#rule-22">22. Sin Bin</a></li>
-                <li><a href="#rule-23">23. Dismissal</a></li>
-                <li><a href="#rule-24">24. Drop-Off</a></li>
-                <li><a href="#rule-25">25. Match Officials</a></li>
-                <li><a href="#section-definitions" class="nav-section-link" style="margin-top:0.6rem">Definitions</a></li>
-                <li><a href="#section-field" class="nav-section-link" style="margin-top:0.3rem">Field of Play</a></li>
-                <li><a href="#section-communication" class="nav-section-link" style="margin-top:0.3rem">Referee Communication</a></li>
-                <li><a href="#section-level2" class="nav-section-link" style="margin-top:0.3rem">Level 2 Assessment</a></li>
-                <li><a href="#section-positioning" class="nav-section-link" style="margin-top:0.3rem">Positioning</a></li>
-            </ul>
+    <nav class="tabs" id="tabs" aria-label="Sections">
+        <a href="#section-rules" class="tab">Rules</a>
+        <a href="#section-penalties" class="tab">Tap or Rollball?</a>
+        <a href="#section-definitions" class="tab">Definitions</a>
+        <a href="#section-field" class="tab">Field of Play</a>
+        <a href="#section-communication" class="tab">Referee Calls</a>
+        <a href="#section-level2" class="tab">Level 2</a>
+        <a href="#section-positioning" class="tab">Positioning</a>
+    </nav>
+</header>
+
+<!-- ===== HOME (phone only) ===== -->
+<div class="home" id="home">
+    <a href="#section-rules" class="tile">
+        <span class="tile-icon">§</span>
+        <span class="tile-title">Rules</span>
+        <span class="tile-sub">25 rules of play</span>
+    </a>
+    <a href="#section-penalties" class="tile">
+        <span class="tile-icon">?</span>
+        <span class="tile-title">Tap or Rollball?</span>
+        <span class="tile-sub">Penalty cribsheet</span>
+    </a>
+    <a href="#section-definitions" class="tile">
+        <span class="tile-icon">Aa</span>
+        <span class="tile-title">Definitions</span>
+        <span class="tile-sub">Glossary of terms</span>
+    </a>
+    <a href="#section-field" class="tile">
+        <span class="tile-icon">▭</span>
+        <span class="tile-title">Field of Play</span>
+        <span class="tile-sub">Dimensions diagram</span>
+    </a>
+    <a href="#section-communication" class="tile">
+        <span class="tile-icon">“”</span>
+        <span class="tile-title">Referee Calls</span>
+        <span class="tile-sub">Two-word calls</span>
+    </a>
+    <a href="#section-level2" class="tile">
+        <span class="tile-icon">✓</span>
+        <span class="tile-title">Level 2</span>
+        <span class="tile-sub">Assessment criteria</span>
+    </a>
+    <a href="#section-positioning" class="tile">
+        <span class="tile-icon">⌖</span>
+        <span class="tile-title">Positioning</span>
+        <span class="tile-sub">Referee diagrams</span>
+    </a>
+</div>
+
+<div class="layout">
+
+    <!-- ===== SIDEBAR (contents of the current section, built by app.js) ===== -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav" aria-label="In this section">
+            <div class="nav-heading" id="subnavTitle"></div>
+            <ul id="subnav"></ul>
         </nav>
     </aside>
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="content" id="content">
+
+        <div class="section-bar">
+            <a href="#" class="back-link">← All sections</a>
+            <select class="jump-select" id="jumpSelect" aria-label="Jump to"></select>
+        </div>
+
+        <p class="search-hint">Click a result to open it in its section.</p>
 
         <!-- ================================================
              SECTION 1: RULES
@@ -957,6 +984,138 @@
             </div>
 
         </section><!-- /section-rules -->
+
+
+        <!-- ================================================
+             SECTION: TAP OR ROLLBALL (penalty cribsheet)
+        ================================================ -->
+        <section class="main-section" id="section-penalties">
+            <div class="section-header">
+                <h1>Tap or Rollball?</h1>
+                <span class="section-edition">Referee Cribsheet</span>
+            </div>
+            <div class="section-accent"></div>
+
+            <div class="card">
+                <p class="section-intro" style="margin-bottom:1rem;font-size:0.88rem;color:var(--muted);">Quick reference for whether an infringement results in a Penalty Tap or a Rollball (Change of Possession). Rule numbers link to the relevant clause.</p>
+                <div class="pen-filter" role="group" aria-label="Filter by outcome">
+                    <button type="button" class="pen-filter-btn active" data-filter="all">All</button>
+                    <button type="button" class="pen-filter-btn" data-filter="tap">Tap</button>
+                    <button type="button" class="pen-filter-btn" data-filter="rollball">Rollball</button>
+                </div>
+                <div class="pen-table">
+                    <div class="pen-head">
+                        <div>Action</div><div>Outcome</div><div>Comment</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">7 on <a class="pen-ref" href="#r5-1">5.1</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note">At the most advantageous place for the non-offending team</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Off the mark <a class="pen-ref" href="#r13-2">13.2</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Forward pass <a class="pen-ref" href="#r11-1">11.1</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note">Where the pass started</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Touch and pass / late pass <a class="pen-ref" href="#r10-6">10.6</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Voluntary rollball <a class="pen-ref" href="#r13-3">13.3</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Hard touch <a class="pen-ref" href="#r10-3">10.3</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Back chat / poor sportsmanship <a class="pen-ref" href="#r20-1">20.1</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Phantom touch <a class="pen-ref" href="#r10-2">10.2</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note">+ Sin Bin</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Obstruction <a class="pen-ref" href="#rule-16">16</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Interfering with the rollball <a class="pen-ref" href="#r13-11">13.11</a> <span class="pen-detail">(in the ruck, deliberately knocking the ball from a player…)</span></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note">Tap 10m in front of the infringement</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Delaying the game <a class="pen-ref" href="#r9-3">9.3</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note">Tap 10m in front of the infringement if the defence delays</div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Offside <a class="pen-ref" href="#rule-15">15</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Not moving forward <a class="pen-ref" href="#r10-13">10.13</a> <span class="pen-detail">once one defender has entered the 7m zone (and the ball is outside the 7m)</span></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-tap">
+                        <div class="pen-action">Dropping early <a class="pen-ref" href="#r10-14">10.14</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-tap">Tap</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">Failed intercept <a class="pen-ref" href="#rule-12">12</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note">If the ball is retrieved by the attack, play continues and the touch count restarts at 0 — don't call rollball until they are touched!</div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">6th touch <a class="pen-ref" href="#r13-5-2">13.5.2</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">Inadequate rollball <a class="pen-ref" href="#r13-1">13.1</a> <span class="pen-detail">(loss of control, hips not square…)</span></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">Off the field <a class="pen-ref" href="#r13-6-1">13.6.1</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note">Rollball 7m in-field</div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">Half caught <a class="pen-ref" href="#r10-7">10.7</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-rollball">
+                        <div class="pen-action">Ball to ground <a class="pen-ref" href="#r9-4">9.4</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-rollball">Rollball</span></div>
+                        <div class="pen-note"></div>
+                    </div>
+                    <div class="pen-item pen-sinbin">
+                        <div class="pen-action">Interchange during the intercept <a class="pen-ref" href="#r17-7">17.7</a></div>
+                        <div class="pen-outcome"><span class="pen-badge pen-badge-sinbin">Sin Bin</span></div>
+                        <div class="pen-note">Sin Bin + potential penalty try</div>
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- /section-penalties -->
 
 
         <!-- ================================================
